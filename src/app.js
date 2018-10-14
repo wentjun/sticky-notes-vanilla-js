@@ -1,7 +1,7 @@
 //local properties
 let note = {
-  title: null,
-  content: null
+  title: '',
+  content: ''
 };
 
 const noteList = [
@@ -89,6 +89,25 @@ const showContent = event => {
       content.style.maxHeight = content.scrollHeight + 'px';
     }
   }
+};
+
+/*
+  helper functions for user interactions, such as adding, deleting, and searching of notes
+*/
+
+const addNote = () => {
+  const inputValue = document.getElementById('title-input').value;
+  const index = noteList.length;
+  if (!inputValue || inputValue === '') {
+    alert('Title cannot be empty!');
+  } else {
+    renderNote(index, inputValue, '');
+    note.title = inputValue;
+    noteList.push(note);
+    console.log(noteList);
+  }
+  //reset the input box
+  document.getElementById('title-input').value = '';
 };
 
 init();
