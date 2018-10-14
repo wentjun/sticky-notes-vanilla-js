@@ -1,0 +1,19 @@
+{
+  "name": "sticky-notes-vanilla",
+  "version": "1.0.0",
+  "description": "sample sticky notes application using vanilla JS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server lib -o",
+    "build": "babel src --out-dir -d lib --copy-files"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "http-server": "^0.11.1"
+  }
+}
