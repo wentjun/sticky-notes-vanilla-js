@@ -104,7 +104,6 @@ const addNote = () => {
     renderNote(index, inputValue, '');
     note.title = inputValue;
     noteList.push(note);
-    console.log(noteList);
   }
   //reset the input box
   document.getElementById('title-input').value = '';
