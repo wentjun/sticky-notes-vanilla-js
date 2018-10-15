@@ -136,7 +136,6 @@ const search = () => {
   const li = ul.getElementsByTagName('li');
   for (i = 0; i < li.length; i++) {
     const title = li[i].getElementsByClassName('title')[0].innerText;
-    console.log(title);
     if (title.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = '';
     } else {
