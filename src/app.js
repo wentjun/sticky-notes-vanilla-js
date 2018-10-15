@@ -1,9 +1,4 @@
 //local properties
-let note = {
-  title: '',
-  content: ''
-};
-
 const noteList = [
   {
     title: 'Instructions (click to expand)',
@@ -63,6 +58,16 @@ const renderNote = (index, title, content) => {
   // appends content to note
   noteListItem.appendChild(noteListItemParagraph);
 
+  // creates delete button for note
+  const noteListItemDelete = document.createElement('SPAN');
+  const closeSign = document.createTextNode('\u00D7');
+  noteListItemDelete.className = 'close';
+  noteListItemDelete.id = index;
+  noteListItemDelete.appendChild(closeSign);
+  noteListItemDelete.addEventListener('click', deleteNote, false);
+  // appends delete sign to note
+  noteListItem.appendChild(noteListItemDelete);
+
   document.getElementById('notes').appendChild(noteListItem);
 };
 
@@ -98,6 +103,11 @@ const showContent = event => {
 const addNote = () => {
   const inputValue = document.getElementById('title-input').value;
   const index = noteList.length;
+  const note = {
+    title: '',
+    content: ''
+  };
+
   if (!inputValue || inputValue === '') {
     alert('Title cannot be empty!');
   } else {
@@ -107,6 +117,16 @@ const addNote = () => {
   }
   //reset the input box
   document.getElementById('title-input').value = '';
+};
+
+const deleteNote = event => {
+  const index = event.target.id;
+  const noteListElement = document.getElementById('notes');
+  const noteElement = event.target.parentElement;
+  if (index > -1) {
+    //noteList.splice(index, 1);
+    noteListElement.removeChild(noteElement);
+  }
 };
 
 init();
