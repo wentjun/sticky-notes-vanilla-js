@@ -98,3 +98,52 @@ ul li:hover {
 [contentEditable='true']:empty:not(:focus):before {
   content: attr(data-placeholder);
 }
+
+/* Delete button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.6em 0.6em 0.6em 1.2em;
+}
+
+.close:hover {
+  background-color: #e26a6a;
+  color: white;
+}
+
+@media only screen and (max-device-width: 768px) {
+  input {
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  #search-input {
+    margin-top: 0.5em;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
+
+  :-moz-placeholder {
+    text-align: center;
+  }
+
+  ::-moz-placeholder {
+    text-align: center;
+  }
+
+  :-ms-input-placeholder {
+    text-align: center;
+  }
+}

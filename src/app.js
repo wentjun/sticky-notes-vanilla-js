@@ -1,18 +1,15 @@
 //local properties
-let note = {
-  title: '',
-  content: ''
-};
-
-const noteList = [
+let noteList = [
   {
     title: 'Instructions (click to expand)',
     content:
-      'Simply create a note by typing your title and clicking the add button! You may also edit your title or content by simply clicking on the title or content'
+      'Simply create a note by typing your title and clicking the add button! You may also edit your title or content by simply clicking on the title or content',
+    id: '0'
   },
   {
     title: 'Sample note',
-    content: 'Just a sample note'
+    content: 'Just a sample note',
+    id: '1'
   }
 ];
 
@@ -63,6 +60,16 @@ const renderNote = (index, title, content) => {
   // appends content to note
   noteListItem.appendChild(noteListItemParagraph);
 
+  // creates delete button for note
+  const noteListItemDelete = document.createElement('SPAN');
+  const closeSign = document.createTextNode('\u00D7');
+  noteListItemDelete.className = 'close';
+  noteListItemDelete.id = index;
+  noteListItemDelete.appendChild(closeSign);
+  noteListItemDelete.addEventListener('click', deleteNote, false);
+  // appends delete sign to note
+  noteListItem.appendChild(noteListItemDelete);
+
   document.getElementById('notes').appendChild(noteListItem);
 };
 
@@ -98,15 +105,48 @@ const showContent = event => {
 const addNote = () => {
   const inputValue = document.getElementById('title-input').value;
   const index = noteList.length;
+  const note = {
+    title: '',
+    content: '',
+    id: ''
+  };
+
   if (!inputValue || inputValue === '') {
     alert('Title cannot be empty!');
   } else {
     renderNote(index, inputValue, '');
-    note.title = inputValue;
+    note['title'] = inputValue;
+    note['id'] = index.toString();
     noteList.push(note);
+    console.log(noteList);
   }
   //reset the input box
   document.getElementById('title-input').value = '';
+};
+
+const deleteNote = event => {
+  const index = event.target.id;
+  const noteListElement = document.getElementById('notes');
+  const noteElement = event.target.parentElement;
+  if (index > -1) {
+    noteList = noteList.filter(note => note['id'] !== index.toString());
+    noteListElement.removeChild(noteElement);
+  }
+};
+
+const search = () => {
+  const input = document.getElementById('search-input');
+  const filter = input.value.toUpperCase();
+  const ul = document.getElementById('notes');
+  const li = ul.getElementsByTagName('li');
+  for (var i = 0; i < li.length; i++) {
+    const title = li[i].getElementsByClassName('title')[0].innerText;
+    if (title.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = '';
+    } else {
+      li[i].style.display = 'none';
+    }
+  }
 };
 
 init();
