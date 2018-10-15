@@ -1,5 +1,5 @@
 //local properties
-const noteList = [
+let noteList = [
   {
     title: 'Instructions (click to expand)',
     content:
@@ -129,8 +129,7 @@ const deleteNote = event => {
   const noteListElement = document.getElementById('notes');
   const noteElement = event.target.parentElement;
   if (index > -1) {
-    //noteList.splice(index, 1);
-    console.log(noteList);
+    noteList = noteList.filter(note => note['id'] !== index.toString());
     noteListElement.removeChild(noteElement);
   }
 };
