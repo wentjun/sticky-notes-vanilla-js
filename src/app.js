@@ -63,6 +63,15 @@ const renderNote = (index, title, content) => {
   // appends content to note
   noteListItem.appendChild(noteListItemParagraph);
 
+  // creates delete button for note
+  const noteListItemDelete = document.createElement('SPAN');
+  const closeSign = document.createTextNode('\u00D7');
+  noteListItemDelete.className = 'close';
+  noteListItemDelete.id = index;
+  noteListItemDelete.appendChild(closeSign);
+  // appends delete sign to note
+  noteListItem.appendChild(noteListItemDelete);
+
   document.getElementById('notes').appendChild(noteListItem);
 };
 
