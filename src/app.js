@@ -3,11 +3,13 @@ const noteList = [
   {
     title: 'Instructions (click to expand)',
     content:
-      'Simply create a note by typing your title and clicking the add button! You may also edit your title or content by simply clicking on the title or content'
+      'Simply create a note by typing your title and clicking the add button! You may also edit your title or content by simply clicking on the title or content',
+    id: '0'
   },
   {
     title: 'Sample note',
-    content: 'Just a sample note'
+    content: 'Just a sample note',
+    id: '1'
   }
 ];
 
@@ -105,15 +107,18 @@ const addNote = () => {
   const index = noteList.length;
   const note = {
     title: '',
-    content: ''
+    content: '',
+    id: ''
   };
 
   if (!inputValue || inputValue === '') {
     alert('Title cannot be empty!');
   } else {
     renderNote(index, inputValue, '');
-    note.title = inputValue;
+    note['title'] = inputValue;
+    note['id'] = index.toString();
     noteList.push(note);
+    console.log(noteList);
   }
   //reset the input box
   document.getElementById('title-input').value = '';
@@ -125,6 +130,7 @@ const deleteNote = event => {
   const noteElement = event.target.parentElement;
   if (index > -1) {
     //noteList.splice(index, 1);
+    console.log(noteList);
     noteListElement.removeChild(noteElement);
   }
 };
