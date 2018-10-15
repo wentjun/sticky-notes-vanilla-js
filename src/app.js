@@ -129,4 +129,20 @@ const deleteNote = event => {
   }
 };
 
+const search = () => {
+  const input = document.getElementById('search-input');
+  const filter = input.value.toUpperCase();
+  const ul = document.getElementById('notes');
+  const li = ul.getElementsByTagName('li');
+  for (i = 0; i < li.length; i++) {
+    const title = li[i].getElementsByClassName('title')[0].innerText;
+    console.log(title);
+    if (title.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = '';
+    } else {
+      li[i].style.display = 'none';
+    }
+  }
+};
+
 init();
