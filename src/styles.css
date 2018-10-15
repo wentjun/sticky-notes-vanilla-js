@@ -104,5 +104,10 @@ ul li:hover {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 12px 16px 12px 16px;
+  padding: 0.6em 0.6em 0.6em 1.2em;
+}
+
+.close:hover {
+  background-color: #e26a6a;
+  color: white;
 }
