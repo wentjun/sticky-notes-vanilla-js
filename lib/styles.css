@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* App header */
+.header {
+  background-color: #e26a6a;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.header h2 {
+  margin: 0.5em;
+}
+
+input {
+  margin-bottom: 0.5em;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+#search-input {
+  width: 100%;
+}
+
+.add-button {
+  padding: 0.5em;
+  width: 25%;
+  min-height: 38px;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.add-button:hover {
+  background-color: #bbb;
+}
+
+/* list of notes */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 0.6em 0.5em 0.6em 1.5em;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul li:hover {
+  background: #ddd;
+}
+
+/* content of note */
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+[contentEditable='true']:empty:not(:focus):before {
+  content: attr(data-placeholder);
+}
+
+/* Delete button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.6em 0.6em 0.6em 1.2em;
+}
+
+.close:hover {
+  background-color: #e26a6a;
+  color: white;
+}
+
+@media only screen and (max-device-width: 768px) {
+  input {
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  #search-input {
+    margin-top: 0.5em;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
+
+  :-moz-placeholder {
+    text-align: center;
+  }
+
+  ::-moz-placeholder {
+    text-align: center;
+  }
+
+  :-ms-input-placeholder {
+    text-align: center;
+  }
+}
