@@ -134,7 +134,7 @@ const search = () => {
   const filter = input.value.toUpperCase();
   const ul = document.getElementById('notes');
   const li = ul.getElementsByTagName('li');
-  for (i = 0; i < li.length; i++) {
+  for (var i = 0; i < li.length; i++) {
     const title = li[i].getElementsByClassName('title')[0].innerText;
     if (title.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = '';
