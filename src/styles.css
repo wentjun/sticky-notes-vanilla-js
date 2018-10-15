@@ -99,6 +99,11 @@ ul li:hover {
   content: attr(data-placeholder);
 }
 
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 /* Delete button */
 .close {
   position: absolute;
